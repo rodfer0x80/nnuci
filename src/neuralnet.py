@@ -168,7 +168,6 @@ class Neuralnet:
         }
     }
 
-    # the average of the square of the difference between the observed and predicted values
     def meanSquareErr(l_input, target_output):
         if len(l_input) != self.INPUT_LAYER_SIZE or len(target) != self.OUTPUT_LAYER_SIZE:
             return 0
