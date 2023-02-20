@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import sys
+import timeit
 
 from src.parser import Parser
 from src.neuralnet import Neuralnet
@@ -7,23 +8,7 @@ from src.categoriser import Categoriser
 
 
 def main():
-
-	public static long t = 0;
-
-	public static void startTimer() {
-		t = System.nanoTime();}
-
-	public static void stopTimer() {
-		t = System.nanoTime() - t;}
-
-	public static long getTimers() {
-		long ts = TimeUnit.SECONDS.convert(t, TimeUnit.NANOSECONDS);
-		return ts;}
-
-	public static float getTimerns() {
-		float tns = TimeUnit.NANOSECONDS.convert(t, TimeUnit.NANOSECONDS);
-		return tns;}
-
+    timeit.Timer(print("lol")
     public static void main(String[] args) {
     	// model 1 for two fold testing
         System.out.printf("[*] Running model 1...\n");
