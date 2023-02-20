@@ -1,51 +1,46 @@
+import numpy as np
+
 
 class Parser:
-    def __init__():
+    def __init__() -> Parser:
+        self.INPUT_SIZE = 0
+        self.OUTPUT_SIZE = 0
+        self.DATASET = np.array(np.array)
+        return self
+
+    def makeDataset(input_size: int, output_size: int) -> None:
+        self.INPUT_SIZE = input_size
+        self.OUTPUT_SIZE = output_size
+        self.DATASET = np.array(np.array())
         return None
 
-        public final int INPUT_SIZE
-        public final int OUTPUT_SIZE
+    def addData(input_data: np.array, expected_output: np.array) -> None:
+        if np.length(input_data) != self.INPUT_SIZE or np.length(expected_output) != self.OUTPUT_SIZE:
+            np.append(self.DATASET, (np.array(input_data),
+                      np.array(expected_output)))
+        return None
 
-        private ArrayList < double[][] > dataset = new ArrayList <> ()
+    def extractBatch(batch_size: int):
+        if batch_size > 0 and batch_size <= len(self.DATASET):
+            xs = set(self.INPUT_SIZE, self.OUTPUT_SIZE)
+            ids = self.randomValues(0, len(self.DATASET)-1, batch_size)
+            for i in ids:
+                xs.add(self.getInput(i), self.getOutput(i))
+            return xs
+        else:
+            return self
 
-        public Dataset(int INPUT_SIZE, int OUTPUT_SIZE) {
-            this.INPUT_SIZE = INPUT_SIZE
-            this.OUTPUT_SIZE = OUTPUT_SIZE
-        }
+    def getInput(x: index):
+        if x >= 0 and x < len(self.DATASET):
+            return self.DATASET[x][0]
+        else:
+            return None
 
-        // add array of parsed data to dataset
-        public void addData(double[] in , double[] expected) {
-        if( in .length != INPUT_SIZE | | expected.length != OUTPUT_SIZE) return
-        dataset.add(new double[][]{ in , expected})
-        }
-
-        // pulls from dataset in n batches
-        public Dataset extractBatch(int size) {
-            if (size > 0 & & size <= this.size()) {
-                Dataset set = new Dataset(INPUT_SIZE, OUTPUT_SIZE);
-                Integer[] ids = randomValues(0, this.size() - 1, size);
-                for (Integer i: ids) {
-                    set.addData(this.getInput(i), this.getOutput(i));}
-                return set; }else return this;     }
-
-        // get dataset size
-        public int size() {
-            return dataset.size()
-        }
-
-        // pick at choice n from dataset input
-        public double[] getInput(int index) {
-            if (index >= 0 & & index < size())
-            return dataset.get(index)[0]
-            else return null
-        }
-
-        // pick at choice n from dataset output
-        public double[] getOutput(int index) {
-            if (index >= 0 & & index < size())
-            return dataset.get(index)[1]
-            else return null
-        }
+    def getOutput(x: index):
+        if x >= 0 and x < len(self.DATASET):
+            return self.DATASET[x][1]
+        else:
+            return None
 
         // create set of size n, generate and fill array with random data from weights
         public static Integer[] randomValues(int smallest, int biggest, int size){
